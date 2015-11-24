@@ -44,6 +44,7 @@ minecraft {
     runDir = "minecraft"
     mappings = "snapshot_20151122"
     replace '${version}', project.version
+    makeObfSourceJar = false
 }
 
 repositories {

@@ -9,6 +9,7 @@ import net.ilexiconn.llibrary.common.message.AbstractMessage;
 import net.minecraft.client.gui.Gui;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -28,6 +29,8 @@ public class LifeGauge extends Gui {
         networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel("lifegauge");
         AbstractMessage.registerMessage(networkWrapper, MessageDisable.class, 0, Side.CLIENT);
         AbstractMessage.registerMessage(networkWrapper, MessageUpdatePotions.class, 1, Side.CLIENT);
+
+        FMLInterModComms.sendMessage("llibrary", "update-checker", "https://github.com/iLexiconn/LifeGauge/raw/version/versions.json");
 
         proxy.preInit();
     }
