@@ -74,6 +74,13 @@ processResources {
     }
 }
 
+jar {
+    manifest {
+        attributes "FMLCorePlugin": "net.ilexiconn.lifegauge.server.asm.LifeGaugePlugin"
+        attributes "FMLCorePluginContainsFMLMod": "true"
+    }
+}
+
 String getVersionFromJava() {
     return getVersionFromJavaWithoutMc() + "-" + config.minecraft_version;
 }

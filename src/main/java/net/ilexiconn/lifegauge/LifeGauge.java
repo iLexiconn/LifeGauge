@@ -21,7 +21,7 @@ public class LifeGauge extends Gui {
     public static ServerProxy proxy;
     public static SimpleNetworkWrapper networkWrapper;
 
-    public static final String VERSION = "0.1.0";
+    public static final String VERSION = "0.1.1";
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
