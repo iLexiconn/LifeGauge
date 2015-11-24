@@ -1,0 +1,17 @@
+[
+    {
+        "modid": "lifegauge",
+        "name": "LifeGauge",
+        "description": "The lightweight damage indicator",
+        "version": "${version}",
+        "url": "https://ilexiconn.net/",
+        "authorList": [
+            "iLexiconn"
+        ],
+        "credits": "",
+        "dependencies": [
+            "Forge",
+            "llibrary@[0.6.0,)"
+        ]
+    }
+]
