@@ -1,11 +1,11 @@
 package net.ilexiconn.lifegauge.server.asm;
 
-import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
 
 @IFMLLoadingPlugin.Name("LifeGauge")
-@IFMLLoadingPlugin.MCVersion("1.8.8")
+@IFMLLoadingPlugin.MCVersion("1.7.10")
 public class LifeGaugePlugin implements IFMLLoadingPlugin {
     public static boolean isDeobfuscated;
 

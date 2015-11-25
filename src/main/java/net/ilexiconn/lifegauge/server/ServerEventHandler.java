@@ -1,13 +1,13 @@
 package net.ilexiconn.lifegauge.server;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.ilexiconn.lifegauge.LifeGauge;
 import net.ilexiconn.lifegauge.server.config.LifeGaugeConfig;
 import net.ilexiconn.lifegauge.server.event.PotionEffectEvent;
 import net.ilexiconn.lifegauge.server.message.MessageDisable;
 import net.ilexiconn.lifegauge.server.message.MessageUpdatePotions;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class ServerEventHandler {
     @SubscribeEvent

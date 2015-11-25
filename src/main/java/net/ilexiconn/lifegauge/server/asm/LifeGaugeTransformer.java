@@ -1,7 +1,7 @@
 package net.ilexiconn.lifegauge.server.asm;
 
+import cpw.mods.fml.common.FMLLog;
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraftforge.fml.common.FMLLog;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
@@ -32,8 +32,8 @@ public class LifeGaugeTransformer implements IClassTransformer {
     public byte[] transformEntityLivingBase(byte[] classBytes) {
         ClassNode classNode = createClassFromByteArray(classBytes);
 
-        String entityLivingBaseClass = LifeGaugePlugin.isDeobfuscated ? "pr" : "net/minecraft/entity/EntityLivingBase";
-        String potionEffectClass = LifeGaugePlugin.isDeobfuscated ? "pf" : "net/minecraft/potion/PotionEffect";
+        String entityLivingBaseClass = LifeGaugePlugin.isDeobfuscated ? "sv" : "net/minecraft/entity/EntityLivingBase";
+        String potionEffectClass = LifeGaugePlugin.isDeobfuscated ? "rw" : "net/minecraft/potion/PotionEffect";
 
         String onNewPotionEffect = LifeGaugePlugin.isDeobfuscated ? "a" : "onNewPotionEffect";
         String onNewPotionEffectDesc = String.format("(L%s;)V", potionEffectClass);

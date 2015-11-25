@@ -1,8 +1,8 @@
 package net.ilexiconn.lifegauge.server.event;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class PotionEffectEvent extends Event {
     public final PotionEffect potion;

@@ -1,7 +1,7 @@
 package net.ilexiconn.lifegauge.server;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class ServerProxy {
     public void preInit() {

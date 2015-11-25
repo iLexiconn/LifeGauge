@@ -1,15 +1,15 @@
 package net.ilexiconn.lifegauge.client.render;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.ilexiconn.lifegauge.api.LifeGaugeAPI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class LifeGaugeRenderer extends Gui {
@@ -17,9 +17,8 @@ public class LifeGaugeRenderer extends Gui {
 
     public void renderLifeGauge(EntityLiving entity, int x, int y) {
         Minecraft mc = Minecraft.getMinecraft();
-        FontRenderer fontRenderer = mc.fontRendererObj;
-        GlStateManager.pushMatrix();
-
+        FontRenderer fontRenderer = mc.fontRenderer;
+        GL11.glPushMatrix();
         Potion[] potionArray = LifeGaugeAPI.getPotionsForEntity(entity);
 
         int nameWidth = fontRenderer.getStringWidth(entity.getCommandSenderName());
@@ -29,7 +28,7 @@ public class LifeGaugeRenderer extends Gui {
 
         drawRect(x, y, x + width, y + height, 0xff000000);
 
-        GlStateManager.color(1f, 1f, 1f, 1f);
+        GL11.glColor4f(1f, 1f, 1f, 1f);
         mc.renderEngine.bindTexture(icons);
         drawTexturedModalRect(x + 5, y + 17, 52, 0, 9, 9);
 
@@ -40,16 +39,16 @@ public class LifeGaugeRenderer extends Gui {
             drawTexturedModalRect(Math.max(nameWidth, healthWidth) + 9 + i * 18, 5, i1 % 8 * 18, 198 + i1 / 8 * 18, 18, 18);
         }
 
-        GlStateManager.rotate(90f, 0f, 0f, 1f);
-        GlStateManager.translate(x, y - 50 - width, 0);
+        GL11.glRotated(90f, 0f, 0f, 1f);
+        GL11.glTranslated(x, y - 50 - width, 0);
         drawGradientRect(0, 0, height, 50, 0x00000000, 0xff000000);
-        GlStateManager.enableBlend();
-        GlStateManager.popMatrix();
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glPopMatrix();
     }
 
     public void renderLifeGaugeText(EntityLiving entity, int x, int y) {
         Minecraft mc = Minecraft.getMinecraft();
-        FontRenderer fontRenderer = mc.fontRendererObj;
+        FontRenderer fontRenderer = mc.fontRenderer;
         fontRenderer.drawString(entity.getCommandSenderName(), x + 5, y + 5, 0xffffff);
         fontRenderer.drawString("x" + entity.getMaxHealth() / 2, x + 16, y + 17, 0xffffff);
     }
