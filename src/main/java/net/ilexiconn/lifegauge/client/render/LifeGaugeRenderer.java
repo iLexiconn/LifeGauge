@@ -15,17 +15,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class LifeGaugeRenderer extends Gui {
     public ResourceLocation inventoryBackground = new ResourceLocation("textures/gui/container/inventory.png");
 
-    public void renderLifeGauge(EntityLiving entity, int x, int y) {
-        Minecraft mc = Minecraft.getMinecraft();
-        FontRenderer fontRenderer = mc.fontRendererObj;
+    public void renderLifeGauge(Minecraft mc, FontRenderer fontRenderer, EntityLiving entity, int x, int y) {
         GlStateManager.pushMatrix();
 
         Potion[] potionArray = LifeGaugeAPI.getPotionsForEntity(entity);
 
         int nameWidth = fontRenderer.getStringWidth(entity.getCommandSenderName());
         int healthWidth = fontRenderer.getStringWidth("x" + entity.getMaxHealth() / 2) + 12;
-        int height = 30;
         int width = Math.max(nameWidth, healthWidth) + potionArray.length * 18 + 14;
+        int height = 30;
 
         drawRect(x, y, x + width, y + height, 0xff000000);
 
@@ -37,11 +35,11 @@ public class LifeGaugeRenderer extends Gui {
         for (int i = 0; i < potionArray.length; i++) {
             Potion potion = potionArray[i];
             int i1 = potion.getStatusIconIndex();
-            drawTexturedModalRect(Math.max(nameWidth, healthWidth) + 9 + i * 18, 5, i1 % 8 * 18, 198 + i1 / 8 * 18, 18, 18);
+            drawTexturedModalRect(x + Math.max(nameWidth, healthWidth) + 9 + i * 18, 5, i1 % 8 * 18, 198 + i1 / 8 * 18, 18, 18);
         }
 
         GlStateManager.rotate(90f, 0f, 0f, 1f);
-        GlStateManager.translate(x, y - 50 - width, 0);
+        GlStateManager.translate(0, y - 50 - width - x, 0);
         drawGradientRect(0, 0, height, 50, 0x00000000, 0xff000000);
         GlStateManager.enableBlend();
         GlStateManager.popMatrix();
