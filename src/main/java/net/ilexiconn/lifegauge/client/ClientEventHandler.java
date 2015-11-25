@@ -11,7 +11,6 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -30,13 +29,6 @@ public class ClientEventHandler {
     public void onRenderTick(TickEvent.RenderTickEvent event) {
         offset = AnimationHandler.smoothUpdate(offset, offsetGoal);
         AnimationHandler.tick();
-    }
-
-    @SubscribeEvent
-    public void onPlayerLogin(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (!LifeGaugeConfig.enabled && event.player.worldObj.isRemote) {
-            LifeGaugeConfig.enabled = true;
-        }
     }
 
     @SubscribeEvent

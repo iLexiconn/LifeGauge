@@ -7,6 +7,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
+import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MessageUpdatePotions extends AbstractMessage<MessageUpdatePotions> {
     public int entityId;
@@ -23,8 +26,9 @@ public class MessageUpdatePotions extends AbstractMessage<MessageUpdatePotions> 
         this.add = add;
     }
 
+    @SideOnly(Side.CLIENT)
     public void handleClientMessage(MessageUpdatePotions message, EntityPlayer player) {
-        Entity entity = player.worldObj.getEntityByID(message.entityId);
+        Entity entity = MinecraftServer.getServer().worldServerForDimension(player.dimension).getEntityByID(message.entityId);
         if (entity instanceof EntityLiving) {
             EntityLiving living = (EntityLiving) entity;
             if (message.add) {
