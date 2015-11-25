@@ -37,15 +37,15 @@ public class NameTagRenderer extends Gui {
         WorldRenderer worldrenderer = tessellator.getWorldRenderer();
 
         GlStateManager.disableTexture2D();
-        int j = (int) Math.max(fontRenderer.getStringWidth(entity.getCommandSenderName()) / 2, entity.getMaxHealth() * 8 / 4);
         worldrenderer.func_181668_a(7, DefaultVertexFormats.field_181706_f);
+        int j = (int) Math.max(fontRenderer.getStringWidth(entity.getCommandSenderName()) / 2, entity.getMaxHealth() * 8 / 4);
         worldrenderer.func_181662_b(-j - 1d, -1d, 0d).func_181666_a(0f, 0f, 0.0F, 0.25f).func_181675_d();
         worldrenderer.func_181662_b(-j - 1d, 8d + 11f, 0d).func_181666_a(0f, 0f, 0f, 0.25f).func_181675_d();
         worldrenderer.func_181662_b(j + 2d, 8d + 11f, 0d).func_181666_a(0f, 0f, 0f, 0.25f).func_181675_d();
         worldrenderer.func_181662_b(j + 1d, -1d, 0d).func_181666_a(0f, 0f, 0f, 0.25f).func_181675_d();
         tessellator.draw();
         GlStateManager.enableTexture2D();
-        String name = entity.hasCustomName() ? entity.getCustomNameTag() : entity.getCommandSenderName();
+        String name = entity.getCommandSenderName();
         fontRenderer.drawString(name, -fontRenderer.getStringWidth(name) / 2, 0, 553648127);
         mc.renderEngine.bindTexture(icons);
         renderHealth(entity, fontRenderer);
