@@ -1,7 +1,6 @@
 package net.ilexiconn.lifegauge.client;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -30,13 +29,6 @@ public class ClientEventHandler {
     public void onRenderTick(TickEvent.RenderTickEvent event) {
         offset = AnimationHandler.smoothUpdate(offset, offsetGoal);
         AnimationHandler.tick();
-    }
-
-    @SubscribeEvent
-    public void onPlayerLogin(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (!LifeGaugeConfig.enabled && event.player.worldObj.isRemote) {
-            LifeGaugeConfig.enabled = true;
-        }
     }
 
     @SubscribeEvent
