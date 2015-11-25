@@ -15,6 +15,7 @@
     ]
   },
   "updateUrl": "http://www.planetminecraft.com/mod/lifegauge/",
-  "directUpdateUrl-1.8.8": "http://minecraft.curseforge.com/projects/lifegauge/files/2267949/download",
+  "directUpdateUrl-1.8.8": "http://minecraft.curseforge.com/projects/lifegauge/files/2268046/download",
+  "directUpdateUrl-1.7.10": "http://minecraft.curseforge.com/projects/lifegauge/files/2268045/download",
   "iconUrl": "http://i.imgur.com/AMUGoCL.png"
 }
