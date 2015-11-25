@@ -1,5 +1,5 @@
 {
-  "release": "0.1.0",
+  "release": "0.1.1",
   "versions": {
     "0.1.0": [
       "Initial release"
@@ -9,5 +9,6 @@
     ]
   },
   "updateUrl": "http://www.planetminecraft.com/mod/lifegauge/",
+  "directUpdateUrl-1.8.8": "http://minecraft.curseforge.com/projects/lifegauge/files/2267949/download",
   "iconUrl": "http://i.imgur.com/AMUGoCL.png"
 }
