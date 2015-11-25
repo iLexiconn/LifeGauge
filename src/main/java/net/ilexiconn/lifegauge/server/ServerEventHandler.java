@@ -23,9 +23,7 @@ public class ServerEventHandler {
             for (Entity entity : (List<Entity>) event.player.worldObj.getLoadedEntityList()) {
                 if (entity instanceof EntityLiving) {
                     EntityLiving living = (EntityLiving) entity;
-                    System.out.println(living.getCommandSenderName());
                     for (PotionEffect potion : (Collection<PotionEffect>) living.getActivePotionEffects()) {
-                        System.out.println(potion.getPotionID());
                         LifeGauge.networkWrapper.sendTo(new MessageUpdatePotions(living.getEntityId(), potion.getPotionID(), true), (EntityPlayerMP) event.player);
                     }
                 }
