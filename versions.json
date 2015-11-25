@@ -1,11 +1,17 @@
 {
-  "release": "0.1.1",
+  "release": "0.1.2",
   "versions": {
     "0.1.0": [
       "Initial release"
     ],
     "0.1.1": [
       "Fixed potions not updating on the client"
+    ],
+    "0.1.2": [
+      "Ported to 1.7.10",
+      "Added fade in/out animations",
+      "Fixed potion desync on relog",
+      "Fixed mod not reloading"
     ]
   },
   "updateUrl": "http://www.planetminecraft.com/mod/lifegauge/",
