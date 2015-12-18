@@ -12,6 +12,9 @@
       "Added fade in/out animations",
       "Fixed potion desync on relog",
       "Fixed mod not reloading"
+    ],
+    "0.1.3": [
+      "Fixed startup crash"
     ]
   },
   "updateUrl": "http://www.planetminecraft.com/mod/lifegauge/",
