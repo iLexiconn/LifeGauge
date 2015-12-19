@@ -35,8 +35,11 @@ public class ClientEventHandler {
     public void onRenderLiving(RenderLivingEvent.Specials.Pre event) {
         if (LifeGaugeConfig.enabled && Minecraft.isGuiEnabled()) {
             if (event.entity instanceof EntityLiving) {
-                event.setCanceled(true);
-                nameTagRenderer.renderNameTag((EntityLiving) event.entity, (float) event.x, (float) event.y, (float) event.z);
+                int distance = (int) event.entity.getDistanceSqToEntity(mc.thePlayer);
+                if (LifeGaugeConfig.renderDistance == -1 || distance <= LifeGaugeConfig.renderDistance) {
+                    event.setCanceled(true);
+                    nameTagRenderer.renderNameTag((EntityLiving) event.entity, (float) event.x, (float) event.y, (float) event.z);
+                }
             }
         }
     }
