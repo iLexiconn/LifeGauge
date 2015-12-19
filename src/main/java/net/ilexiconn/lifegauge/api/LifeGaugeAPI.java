@@ -32,7 +32,7 @@ public class LifeGaugeAPI {
             List<Potion> potionList = potionMap.get(entity);
             return potionList.toArray(new Potion[potionList.size()]);
         } else {
-            return new Potion[] {};
+            return new Potion[]{};
         }
     }
 }

@@ -7,14 +7,6 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
 public class LifeGaugeTransformer implements IClassTransformer {
-    public byte[] transform(String name, String transformedName, byte[] classBytes) {
-        if (transformedName.equals("net.minecraft.entity.EntityLivingBase")) {
-            return transformEntityLivingBase(classBytes);
-        } else {
-            return classBytes;
-        }
-    }
-
     public static ClassNode createClassFromByteArray(byte[] classBytes) {
         ClassNode classNode = new ClassNode();
         ClassReader classReader = new ClassReader(classBytes);
@@ -22,10 +14,18 @@ public class LifeGaugeTransformer implements IClassTransformer {
         return classNode;
     }
 
-    public static byte[] createByteArrayFromClass (ClassNode classNode, int flags) {
+    public static byte[] createByteArrayFromClass(ClassNode classNode, int flags) {
         ClassWriter classWriter = new ClassWriter(flags);
         classNode.accept(classWriter);
         return classWriter.toByteArray();
+    }
+
+    public byte[] transform(String name, String transformedName, byte[] classBytes) {
+        if (transformedName.equals("net.minecraft.entity.EntityLivingBase")) {
+            return transformEntityLivingBase(classBytes);
+        } else {
+            return classBytes;
+        }
     }
 
     public byte[] transformEntityLivingBase(byte[] classBytes) {

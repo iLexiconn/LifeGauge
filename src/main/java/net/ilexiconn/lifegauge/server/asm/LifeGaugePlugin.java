@@ -10,7 +10,7 @@ public class LifeGaugePlugin implements IFMLLoadingPlugin {
     public static boolean isDeobfuscated;
 
     public String[] getASMTransformerClass() {
-        return new String[] {LifeGaugeTransformer.class.getName()};
+        return new String[]{LifeGaugeTransformer.class.getName()};
     }
 
     public String getModContainerClass() {

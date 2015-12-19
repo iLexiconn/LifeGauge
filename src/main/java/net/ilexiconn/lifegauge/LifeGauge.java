@@ -17,11 +17,10 @@ import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = "lifegauge", name = "Life Gauge", version = LifeGauge.VERSION, dependencies = "required-after:llibrary@[0.6.0,)")
 public class LifeGauge extends Gui {
+    public static final String VERSION = "0.1.3";
     @SidedProxy(serverSide = "net.ilexiconn.lifegauge.server.ServerProxy", clientSide = "net.ilexiconn.lifegauge.client.ClientProxy")
     public static ServerProxy proxy;
     public static SimpleNetworkWrapper networkWrapper;
-
-    public static final String VERSION = "0.1.3";
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
