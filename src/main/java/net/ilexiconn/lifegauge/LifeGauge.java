@@ -6,7 +6,6 @@ import net.ilexiconn.lifegauge.server.message.MessageEnable;
 import net.ilexiconn.lifegauge.server.message.MessageUpdatePotions;
 import net.ilexiconn.llibrary.common.config.ConfigHelper;
 import net.ilexiconn.llibrary.common.message.AbstractMessage;
-import net.minecraft.client.gui.Gui;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
@@ -16,7 +15,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = "lifegauge", name = "Life Gauge", version = LifeGauge.VERSION, dependencies = "required-after:llibrary@[0.6.0,)")
-public class LifeGauge extends Gui {
+public class LifeGauge {
     public static final String VERSION = "0.1.3";
     @SidedProxy(serverSide = "net.ilexiconn.lifegauge.server.ServerProxy", clientSide = "net.ilexiconn.lifegauge.client.ClientProxy")
     public static ServerProxy proxy;
